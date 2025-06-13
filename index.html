@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="website-title">Veo 3 Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="main-title">Veo 3 Prompt Generator by hilvanto</h1>
+            <p>Buat prompt karakter konsisten untuk Veo 3 dengan mudah. Isi kolom di bawah ini untuk menghasilkan prompt yang terstruktur dan detail.</p>
+        </header>
+
+        <div class="settings">
+            <div class="setting-item">
+                <label for="title-changer">Ubah Judul Header:</label>
+                <input type="text" id="title-changer" placeholder="Masukkan judul baru...">
+                <button id="change-title-btn">Ubah</button>
+            </div>
+            <div class="setting-item">
+                <label for="style-changer">Ubah Gaya Warna:</label>
+                <input type="text" id="style-changer" placeholder="Contoh: #0000FF, #000000, #FFFFFF">
+                <button id="change-style-btn">Ubah</button>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="form-grid">
+                <!-- Kolom 1 -->
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="judul-scene">1. Judul Scene</label>
+                        <input type="text" id="judul-scene" placeholder="Contoh: Terminal bus malam">
+                    </div>
+                    <div class="input-group">
+                        <label for="karakter-inti">2. Deskripsi Karakter Inti</label>
+                        <textarea id="karakter-inti" rows="8" placeholder="Contoh: Seorang vlogger wanita muda asal Minang berusia 27 tahun. Perawakan/Bentuk Tubuh: tubuh mungil, tinggi 158cm..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="suara-karakter">3. Detail Suara Karakter</label>
+                        <textarea id="suara-karakter" rows="6" placeholder="Contoh: Dia berbicara dengan suara wanita muda yang hangat dan penuh semangat. Nada: mezzo-soprano..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="aksi-karakter">4. Aksi Karakter</label>
+                        <textarea id="aksi-karakter" rows="3" placeholder="Contoh: berjalan di sekitar terminal bus malam sambil melihat-lihat aktivitas penumpang dan pedagang."></textarea>
+                    </div>
+                     <div class="input-group">
+                        <label for="ekspresi-karakter">5. Ekspresi Karakter</label>
+                        <textarea id="ekspresi-karakter" rows="3" placeholder="Contoh: Karakter menunjukkan ekspresi kagum dan antusias, sering tersenyum sambil melirik kamera."></textarea>
+                    </div>
+                </div>
+
+                <!-- Kolom 2 -->
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="latar-tempat">6. Latar Tempat & Waktu</label>
+                        <textarea id="latar-tempat" rows="4" placeholder="Contoh: latar tempat: di terminal bus antar kota malam hari... Waktu: malam hari, hujan rintik-rintik."></textarea>
+                    </div>
+                    <div class="input-group visual-details">
+                        <label>7. Detail Visual Tambahan</label>
+                        <select id="gerakan-kamera">
+                            <option value="">-- Pilih Gerakan Kamera --</option>
+                        </select>
+                        <input type="text" id="pencahayaan" placeholder="Pencahayaan, contoh: natural dari lampu jalan">
+                        <input type="text" id="gaya-video" placeholder="Gaya Video/Art Style, contoh: cinematic realistis">
+                        <input type="text" id="kualitas-visual" placeholder="Kualitas Visual, contoh: Resolusi 4K">
+                    </div>
+                    <div class="input-group">
+                        <label for="suasana">8. Suasana Keseluruhan</label>
+                        <textarea id="suasana" rows="3" placeholder="Contoh: Suasana sibuk, ramai, dengan kesan perjalanan malam yang hidup dan dinamis meskipun hujan."></textarea>
+                    </div>
+                     <div class="input-group">
+                        <label for="suara-lingkungan">9. Suara Lingkungan/Ambience</label>
+                        <textarea id="suara-lingkungan" rows="3" placeholder="SOUND: suara mesin bus menyala, pengumuman dari pengeras suara..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Kolom 3 -->
+                <div class="form-column">
+                   <div class="input-group">
+                        <label for="dialog-karakter">10. Dialog Karakter</label>
+                        <textarea id="dialog-karakter" rows="4" placeholder="DIALOG dalam Bahasa Indonesia: Karakter berkata: Tiap kota punya terminal kayak gini..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="negative-prompt">11. Negative Prompt</label>
+                        <textarea id="negative-prompt" rows="5" placeholder="Hindari: teks di layar, subtitle, tulisan di video, font, logo, distorsi, artefak, anomali, wajah ganda..."></textarea>
+                    </div>
+                    <button id="generate-btn" class="generate-button">Buat Prompt</button>
+                </div>
+            </div>
+        </main>
+
+        <section class="output-section">
+            <h2>Hasil Prompt</h2>
+            <div class="prompt-results">
+                <div class="result-box">
+                    <h3>Bahasa Indonesia (Dapat Diedit)</h3>
+                    <textarea id="output-indonesia" rows="15"></textarea>
+                </div>
+                <div class="result-box">
+                    <h3>Final Prompt (Bahasa Inggris)</h3>
+                    <div id="output-english" class="final-prompt" contenteditable="false"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
